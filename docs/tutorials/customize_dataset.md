@@ -184,10 +184,11 @@ class MyDataset(CustomDataset):
             height = int(img_shape[1])
             bbox_number = int(ann_list[i + 3])
 
-            anns = ann_line.split(' ')
+            
             bboxes = []
             labels = []
             for anns in ann_list[i + 4:i + 4 + bbox_number]:
+                anns = anns.split(' ')
                 bboxes.append([float(ann) for ann in anns[:4]])
                 labels.append(int(anns[4]))
 
